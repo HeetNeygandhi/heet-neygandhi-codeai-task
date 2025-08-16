@@ -1,0 +1,692 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 24px;
+}
+
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+
+/* Google font */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    text-align: center;
+}
+
+/* Navbar */
+.navbar {
+    padding: 1rem 2rem;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: rgba(0, 0, 0, 0.25);
+    /* darker for contrast */
+    backdrop-filter: blur(15px) saturate(180%);
+    -webkit-backdrop-filter: blur(15px) saturate(180%);
+    box-sizing: border-box;
+    transition: background 0.3s ease, padding 0.3s ease;
+}
+
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #60a5fa;
+    text-shadow: 0 0 10px #60a5fa, 0 0 20px #60a5fa;
+    animation: glowPulse 2s infinite alternate;
+}
+
+@keyframes glowPulse {
+    from {
+        text-shadow: 0 0 10px #60a5fa, 0 0 20px #60a5fa;
+    }
+
+    to {
+        text-shadow: 0 0 20px #60a5fa, 0 0 40px #60a5fa;
+    }
+}
+
+
+.glow {
+    color: #00e5ff;
+    text-shadow:
+        0 0 8px #00e5ff,
+        0 0 25px rgba(0, 229, 255, 0.7);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    position: relative;
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    padding: 10px;
+}
+
+.nav-links a:hover {
+    border-radius: 10px;
+    background-color: rgba(0, 119, 255, 0.2);
+    color: #0077ff;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: #60a5fa;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+
+/* Sections */
+section {
+    padding: 4rem 2rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.about-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /* align-content: space-between; */
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+
+.about-text {
+    text-align: center;
+    flex: 1;
+    min-width: 300px;
+}
+
+.about-text h2 {
+    font-size: 2rem;
+}
+
+.about-text p {
+    font-size: 1.2rem;
+}
+
+.name {
+    font-size: 3rem;
+}
+
+.about-animation iframe {
+    width: 500px;
+    height: 500px;
+    max-width: 100%;
+    max-height: 100%;
+    border: none;
+}
+
+
+/* Skills Section */
+#skills,
+#projects {
+    padding: 50px 20px;
+}
+
+#skills .container {
+    max-width: 800px;
+    margin: auto;
+}
+
+#skills h2,
+#projects h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+    color: #0077ff;
+}
+
+.skills-category {
+    background: rgba(0, 60, 255, 0.05);
+    border: 0.5px solid #4db8ff;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.skills-category:hover {
+    transform: scale(1.05);
+    border-color: #1e90ff;
+    /* Slightly deeper blue on hover */
+}
+
+/* Hover effect for each skill */
+.skill {
+    border-radius: 6px;
+    padding: 10px;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.skill:hover {
+    transform: scale(1.03);
+}
+
+.skills-category h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: cyan;
+    border-left: 4px solid #0077ff;
+    padding-left: 8px;
+}
+
+
+
+.skill span {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 6px;
+    font-size: 1rem;
+}
+
+.skill i {
+    margin-right: 8px;
+    color: #0077ff;
+}
+
+.progress-bar {
+    background: #b2e0e4;
+    height: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress-bar div {
+    width: 0;
+    height: 100%;
+    background: linear-gradient(90deg, cyan, #0077ff);
+    animation: fillBar 1.2s ease forwards;
+}
+
+@keyframes fillBar {
+    to {
+        width: var(--level);
+    }
+}
+
+
+/* Projects Grid */
+
+#projects .container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 1.5rem;
+}
+
+.project-card {
+    background-color: rgba(116, 146, 255, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s, box-shadow 0.3s;
+    max-width: 100%;
+    box-sizing: border-box;
+    word-wrap: break-word;
+}
+
+.project-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 12px 30px rgba(0, 0, 255, 0.4);
+}
+
+.project-content {
+    padding: 1.5rem;
+    text-align: left;
+}
+
+.project-content h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: cyan;
+}
+
+.project-content p {
+    color: #ccc;
+    line-height: 1.4;
+}
+
+.project-links {
+    background: rgba(0, 0, 45, 0.5);
+    padding: 1rem;
+    text-align: center;
+}
+
+.project-links a {
+    color: cyan;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.project-links a:hover {
+    color: #00e5ff;
+}
+
+.project-links i {
+    margin-right: 6px;
+}
+
+/* Internship Section */
+#internship {
+    padding: 50px 20px;
+}
+
+#internship .container {
+    max-width: 1000px;
+    margin: auto;
+}
+
+#internship h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+    color: #0077ff;
+}
+
+.internship-card {
+    background-color: rgba(116, 146, 255, 0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.internship-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(0, 0, 255, 0.3);
+}
+
+.internship-content h3 {
+    font-size: 1.5rem;
+    color: cyan;
+    margin-bottom: 0.5rem;
+}
+
+.internship-content p {
+    color: #ccc;
+    line-height: 1.4;
+    margin-bottom: 0.5rem;
+}
+
+.internship-links {
+    margin-top: 1rem;
+}
+
+.internship-links a {
+    color: cyan;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.internship-links a:hover {
+    color: #00e5ff;
+}
+
+.internship-links i {
+    margin-right: 6px;
+}
+
+
+
+
+/* Certifications Section */
+#certifications {
+    padding: 50px 20px;
+}
+
+#certifications .container {
+    max-width: 800px;
+    margin: auto;
+}
+
+#certifications h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+    color: #0077ff;
+}
+
+.cert-card {
+    background-color: rgba(116, 146, 255, 0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.cert-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(0, 0, 255, 0.3);
+}
+
+.cert-card h3 {
+    color: cyan;
+    margin-bottom: 0.5rem;
+}
+
+.cert-card p {
+    color: #ccc;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+}
+
+
+/* Contact Section Styling */
+#contacts {
+    display: flex;
+    justify-content: center;
+}
+
+#contact {
+    text-align: center;
+    /* Center the h2 and p tags */
+    padding: 2rem 1rem;
+    /* Add consistent padding */
+    background-color: rgba(116, 146, 255, 0.1);
+    max-width: 800px;
+    border-radius: 50px;
+}
+
+#contact h2 {
+    font-size: 2rem;
+    color: #0077ff;
+    /* Consistent with other section headers */
+    margin-bottom: 0.5rem;
+}
+
+#contact p {
+    font-size: 0.8rem;
+    color: #ccc;
+    max-width: 700px;
+    /* Limit width for readability */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-links-grid {
+    display: flex;
+    /* Use flexbox for horizontal layout */
+    flex-wrap: wrap;
+    /* Allow items to wrap to the next line */
+    justify-content: center;
+    /* Center items horizontally */
+    gap: 1rem;
+    /* Space between contact items */
+    margin-top: 1rem;
+}
+
+.contact-item {
+    display: flex;
+    /* Use flexbox for icon and text alignment */
+    align-items: center;
+    /* Vertically align icon and text */
+    gap: 0.75rem;
+    /* Space between icon and text */
+    text-decoration: none;
+    color: #ccc;
+    background-color: rgba(116, 146, 255, 0.1);
+    /* Consistent with project cards */
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    min-width: 250px;
+    /* Ensure a minimum width for better layout */
+    justify-content: center;
+    /* Center content within the contact item */
+}
+
+.contact-item:hover {
+    transform: translateY(-5px);
+    background-color: rgba(0, 119, 255, 0.2);
+    /* Slightly darker on hover */
+    color: #00e5ff;
+    /* Lighter cyan on hover */
+}
+
+.contact-item i {
+    font-size: 1.3rem;
+    /* Larger icon size */
+    color: #0077ff;
+    /* Blue color for icons */
+    transition: color 0.3s ease;
+}
+
+.contact-item:hover i {
+    color: #0077ff;
+    /* Change icon color on hover */
+}
+
+.contact-item span {
+    font-size: 0.8rem;
+    /* Adjust text size */
+    font-weight: 500;
+}
+
+/* Responsive adjustments for Contact Section */
+@media (max-width: 768px) {
+    .contact-links-grid {
+        flex-direction: column;
+        /* Stack items vertically on smaller screens */
+        align-items: center;
+        /* Center stacked items */
+    }
+
+    .contact-item {
+        width: 80%;
+        /* Make items take more width on smaller screens */
+        max-width: 350px;
+        /* Prevent them from getting too wide */
+    }
+}
+
+@media (max-width: 480px) {
+    #contact h2 {
+        font-size: 2rem;
+    }
+
+    #contact p {
+        font-size: 1rem;
+    }
+
+    .contact-item {
+        min-width: unset;
+        /* Remove min-width to allow more flexibility */
+        padding: 0.8rem 1rem;
+    }
+
+    .contact-item i {
+        font-size: 1.5rem;
+    }
+
+    .contact-item span {
+        font-size: 1rem;
+    }
+}
+
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1.5rem 0;
+    font-size: 0.9rem;
+    background-color: rgba(0, 60, 200, 0.15);
+    color: #aaa;
+}
+
+/* Responsive */
+@media(max-width: 1300px) {
+    .about-container {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 600px) {
+    * {
+        text-align: center;
+        font-size: 0.8rem;
+        margin: 0;
+        padding: 0;
+    }
+
+    .logo {
+        font-size: 1.2rem;
+    }
+
+    .nav-links {
+        flex-direction: row;
+        align-items: start;
+        gap: 0.5rem;
+    }
+
+    .navbar {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+        /* Single column on small screens */
+        gap: 1rem;
+    }
+
+    .about-text {
+        min-width: 250px;
+    }
+
+}
+
+@media (min-width: 600px) and (max-width: 800px) {
+    * {
+        font-size: 0.9rem;
+    }
+}
+
+@media (min-width: 1800px) {
+    iframe {
+        width: 650px;
+        height: 650px;
+    }
+}
+
+/* HIDE hamburger on desktop */
+.menu-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+}
+
+/* Hamburger icon — 3 bars with your glow */
+.menu-icon,
+.menu-icon::before,
+.menu-icon::after {
+    content: '';
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    box-shadow: 0 0 5px #0077ff;
+    /* CHANGE to your glow color */
+    margin: 6px 0;
+    transition: 0.3s ease;
+}
+
+.menu-toggle.open .menu-icon {
+    background: transparent;
+    box-shadow: none;
+}
+
+.menu-toggle.open .menu-icon::before {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.open .menu-icon::after {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* MOBILE MENU */
+@media (max-width: 1330px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 10px;
+        background-color: rgba(0, 0, 0, 0.85);
+        min-width: 220px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px #0077ff;
+        padding: 12px;
+        align-items: stretch;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 0;
+        text-align: center;
+        padding: 6px 0;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 10px 0;
+        font-size: 18px;
+        color: white;
+        text-shadow: 0 0 5px #0077ff;
+    }
+
+    .nav-links a:hover {
+        color: #0077ff;
+        text-shadow: 0 0 10px #0077ff;
+    }
+}
