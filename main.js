@@ -11,17 +11,6 @@ particlesJS('particles-js', {
     }
 });
 
-window.addEventListener("scroll", () => {
-    const navbar = document.querySelector(".navbar");
-    if (window.scrollY > 50) {
-        navbar.style.padding = "0.5rem 2rem";
-        navbar.style.background = "rgba(0, 0, 0, 0.6)";
-    } else {
-        navbar.style.padding = "1rem 2rem";
-        navbar.style.background = "rgba(0, 0, 0, 0.25)";
-    }
-});
-
 const menuToggle = document.getElementById('menu-toggle');
 const navLinks = document.querySelector('.nav-links');
 
